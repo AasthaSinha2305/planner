@@ -1,9 +1,17 @@
 import React from 'react'
 
-export const AddTrip = () => {
+export const AddTrip = ({AddNewTrip}) => {
     let date, place, type;
     const submit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+
+        const obj = {
+            date: date.value,
+            place: place.value,
+            type: type.value
+        }
+        AddNewTrip(obj);
+        date.value =place.value=type.value="";
     }
     return(
         <div className="form-container">
